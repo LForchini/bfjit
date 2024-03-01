@@ -6,7 +6,6 @@ version = 3
 name = "bfjit"
 version = "0.1.0"
 dependencies = [
- "libc 0.2.153",
  "mmap",
 ]
 

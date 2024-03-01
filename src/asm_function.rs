@@ -32,6 +32,7 @@ impl<Args, Ret> Fn<Args> for AsmFunction<Args, Ret>
 where
     Args: Tuple,
 {
+    #[inline]
     extern "rust-call" fn call(&self, args: Args) -> Self::Output {
         unsafe { (self.function)(args) }
     }
@@ -41,6 +42,7 @@ impl<Args, Ret> FnMut<Args> for AsmFunction<Args, Ret>
 where
     Args: Tuple,
 {
+    #[inline]
     extern "rust-call" fn call_mut(&mut self, args: Args) -> Self::Output {
         self.call(args)
     }
@@ -52,6 +54,7 @@ where
 {
     type Output = Ret;
 
+    #[inline]
     extern "rust-call" fn call_once(self, args: Args) -> Self::Output {
         self.call(args)
     }
