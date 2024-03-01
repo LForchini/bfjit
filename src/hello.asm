@@ -1,3 +1,5 @@
+; fasm hello.asm
+
 use64
 
 SYS_write equ 1
